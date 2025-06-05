@@ -1,0 +1,17 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+
+# TypeScript compilation output
+dist/
+*.js.map # Source maps
+
+# macOS specific
+.DS_Store
+
+# Editor/IDE specific files
+.vscode/ # VS Code specific files (unless intentionally shared)
+*.sublime-project
+*.sublime-workspace
+.idea/ # IntelliJ/WebStorm specific files
