@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "esnext",
+        "outDir": "./public",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ]
+    },
+    "include": [
+        "src/client.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/server.ts"
+    ]
+}

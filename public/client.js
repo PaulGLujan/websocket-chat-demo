@@ -1,8 +1,9 @@
+"use strict";
 const messagesDiv = document.getElementById('messages');
 const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
 // IMPORTANT: For local development, use ws://localhost:3000
-// When deployed to AWS, you will change this to wss://YOUR_API_GATEWAY_URL/dev
+// When deployed to AWS, this will change to wss://YOUR_API_GATEWAY_URL/dev
 const socket = new WebSocket('ws://localhost:3000');
 // Event listener for when the WebSocket connection is successfully opened
 socket.onopen = (event) => {
