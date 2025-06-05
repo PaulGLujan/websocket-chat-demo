@@ -1,0 +1,61 @@
+service: websocket-chat-app
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs22.x 
+  region: us-west-2 
+  stage: dev 
+  memorySize: 128 
+  timeout: 10 
+  environment:
+    CONNECTIONS_TABLE_NAME: ${self:service}-connections-${sls:stage} 
+  iam: 
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:CreateTable
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:DeleteItem
+            - dynamodb:Scan
+          Resource: arn:aws:dynamodb:${aws:region}:${aws:accountId}:table/${self:service}-connections-${sls:stage}
+        - Effect: Allow
+          Action:
+            - execute-api:ManageConnections
+          Resource: arn:aws:execute-api:${aws:region}:${aws:accountId}:*/@connections/*
+
+functions:
+  connect:
+    handler: dist/handler.connect 
+    events:
+      - websocket:
+          route: $connect 
+
+  disconnect:
+    handler: dist/handler.disconnect 
+    events:
+      - websocket:
+          route: $disconnect
+
+  sendMessage:
+    handler: dist/handler.sendMessage 
+    events:
+      - websocket:
+          route: $default
+
+resources:
+  Resources:
+    ConnectionsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-connections-${sls:stage}
+        AttributeDefinitions:
+          - AttributeName: connectionId
+            AttributeType: S # String type for connectionId
+        KeySchema:
+          - AttributeName: connectionId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST

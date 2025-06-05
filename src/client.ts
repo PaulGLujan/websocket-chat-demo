@@ -2,9 +2,7 @@ const messagesDiv = document.getElementById('messages') as HTMLDivElement;
 const messageInput = document.getElementById('messageInput') as HTMLInputElement;
 const sendButton = document.getElementById('sendButton') as HTMLButtonElement;
 
-// IMPORTANT: For local development, use ws://localhost:3000
-// When deployed to AWS, this will change to wss://YOUR_API_GATEWAY_URL/dev
-const socket = new WebSocket('ws://localhost:3000');
+const socket = new WebSocket('wss://gr08q8lc49.execute-api.us-west-2.amazonaws.com/dev');
 
 // Event listener for when the WebSocket connection is successfully opened
 socket.onopen = (event) => {

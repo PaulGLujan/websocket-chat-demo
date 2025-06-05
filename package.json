@@ -1,13 +1,15 @@
 {
   "name": "websocket-chat-demo",
   "version": "1.0.0",
-  "main": "dist/server.js",
+  "main": "dist/handler.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "start": "node dist/handler.js",
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/handler.ts",
     "build:server": "tsc --project tsconfig.json",
     "build:client": "tsc --project tsconfig.client.json",
     "build": "npm run build:server && npm run build:client",
+    "deploy": "serverless deploy",
+    "start:frontend": "node local-frontend-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,6 +17,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.825.0",
+    "@aws-sdk/client-dynamodb": "^3.825.0",
+    "@aws-sdk/lib-dynamodb": "^3.825.0",
     "@types/express": "^5.0.2",
     "@types/ws": "^8.18.1",
     "express": "^5.1.0",
@@ -22,6 +27,7 @@
     "ws": "^8.18.2"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2"
   }
