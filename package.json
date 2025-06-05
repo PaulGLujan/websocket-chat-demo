@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
-    "build": "tsc",
+    "build:server": "tsc --project tsconfig.json",
+    "build:client": "tsc src/client.ts --outDir public --target es2017 --module esnext",
+    "build": "npm run build:server && npm run build:client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
