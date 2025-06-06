@@ -11,6 +11,19 @@ The application aims to implement the following core features:
 3. **Connection Management with DynamoDB:** Active WebSocket connections are efficiently managed and persisted in an **Amazon DynamoDB** table. This allows the stateless Lambda functions to track connected clients and broadcast messages reliably to all participants.
 4. **Static Frontend Hosting (AWS S3):** The client-side application (HTML, CSS, JavaScript) is hosted as a **static website on Amazon S3**. This ensures cost-effective, high-availability, and global distribution of your chat interface.
 
+## Live Demo
+
+Experience the real-time chat application directly in your browser!
+
+**Live Site URL:** [http://websocket-chat-app-frontend-dev.s3-website-us-west-2.amazonaws.com/](http://websocket-chat-app-frontend-dev.s3-website-us-west-2.amazonaws.com/)
+
+**How to Test:**
+
+1.  Open the **Live Site URL** in **two separate browser tabs or windows** (or even on different devices!) initially.
+2.  In either tab, type a message into the input field and press Enter or click "Send".
+3.  Observe your message appearing instantly in **both** tabs, demonstrating the real-time, bi-directional communication.
+4.  Continue sending messages from either tab to experience the full interactive chat.
+
 ## Technologies Used
 
 * **Frontend:**
