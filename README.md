@@ -1,8 +1,8 @@
-# WebSocket Chat Demo
+# WebSocket Chat Demo 💬
 
 This project is a simple, real-time chat application designed to provide a hands-on learning experience with **WebSocket technology** and its **serverless deployment** in a cloud environment using AWS.
 
-## Key Features
+## Key Features ✨
 
 The application aims to implement the following core features:
 
@@ -11,7 +11,7 @@ The application aims to implement the following core features:
 3. **Connection Management with DynamoDB:** Active WebSocket connections are efficiently managed and persisted in an **Amazon DynamoDB** table. This allows the stateless Lambda functions to track connected clients and broadcast messages reliably to all participants.
 4. **Static Frontend Hosting (AWS S3):** The client-side application (HTML, CSS, JavaScript) is hosted as a **static website on Amazon S3**. This ensures cost-effective, high-availability, and global distribution of your chat interface.
 
-## Live Demo
+## Live Demo 🌍
 
 Experience the real-time chat application directly in your browser!
 
@@ -24,7 +24,7 @@ Experience the real-time chat application directly in your browser!
 3.  Observe your message appearing instantly in **both** tabs, demonstrating the real-time, bi-directional communication.
 4.  Continue sending messages from either tab to experience the full interactive chat.
 
-## Technologies Used
+## Technologies Used 🛠️
 
 * **Frontend:**
     * **HTML, CSS:** For structuring and styling the user interface.
@@ -45,7 +45,7 @@ Experience the real-time chat application directly in your browser!
 
 Follow these steps to set up, run, and deploy your WebSocket Chat Demo.
 
-### Prerequisites
+### Prerequisites ✅
 
 Before you begin, ensure you have the following installed:
 
@@ -59,7 +59,7 @@ Before you begin, ensure you have the following installed:
         npm install -g serverless
     *   **Note for Serverless v4:** If this is your first time using Serverless Framework v4, you may be prompted to log in/register. Follow the CLI instructions to complete this step.
 
-### Local Setup & Development
+### Local Setup & Development 💻
 
 1.  **Clone the Repository:**
     
@@ -80,7 +80,7 @@ Before you begin, ensure you have the following installed:
     Leave this terminal window open.
 5.  **Open in Browser:** Open your web browser and navigate to `http://localhost:3000`. You should see the chat interface.
 
-### Deployment to AWS
+### Deployment to AWS ☁️
 
 1.  **Review `serverless.yml`:** Open `serverless.yml` and ensure the `provider.region` is set to your preferred AWS region (e.g., `us-west-2`).
 2.  **Compile Server-Side Code:** The Lambda functions code needs to be compiled.
@@ -94,13 +94,13 @@ Before you begin, ensure you have the following installed:
     This process can take a few minutes. Upon successful completion, the Serverless Framework will output the `WebSocket` endpoint and (if configured) the `S3StaticWebsite` URL.
     *   **Important:** If the static website URL is not displayed in the console output, you can find it in the AWS S3 console by navigating to your frontend bucket (`websocket-chat-app-frontend-dev` in the chosen region), then checking its "Properties" tab under "Static website hosting".
 
-### Testing the Deployed Application
+### Testing the Deployed Application ✅
 
 1.  **Access the Frontend:** Open your web browser and navigate to the **S3 Static Website URL** you obtained from the deployment output or the AWS Console. This is your publicly accessible chat application.
 2.  **Verify Real-time Communication:** Open multiple tabs or different browsers to this URL. Send messages from one tab and observe them appearing in all other connected tabs in real-time.
 3.  **Monitor Logs (Optional but Recommended):** Check your AWS CloudWatch logs in the AWS Console for log groups related to your Lambda functions (e.g., `/aws/lambda/websocket-chat-app-dev-sendMessage`) to see backend activity and debug any issues.
 
-### Cleaning Up AWS Resources
+### Cleaning Up AWS Resources 🗑️
 
 To avoid incurring future costs from deployed AWS resources, you can easily remove the entire stack using the Serverless Framework:
 
