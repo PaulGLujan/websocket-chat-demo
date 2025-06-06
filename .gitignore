@@ -15,3 +15,6 @@ dist/
 *.sublime-project
 *.sublime-workspace
 .idea/ # IntelliJ/WebStorm specific files
+
+# Serverless Framework / AWS Lambda
+.serverless/
